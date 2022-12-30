@@ -1,17 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+     Pokedex!
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar >
+    <ion-button id="left" (click)="previous()"> <ion-icon  name="chevron-back-outline"></ion-icon></ion-button>
+    <ion-button id="right" (click)="next()"><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+
+  
+  <!-- <ion-card *ngFor="let poke of this.pokes">
+   <img alt="{{poke.forms.name}}" src="{{poke.sprites.front_default}}" />
+    <ion-card-header>
+      <ion-card-title>{{poke.name}}</ion-card-title>
+      <ion-card-subtitle> Peso: {{poke.height}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Pokemons</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let poke of this.pokes">
+          <ion-thumbnail slot="start">
+            <img alt="{{poke.name}}" src="{{poke.sprites.front_default}}" />
+          </ion-thumbnail>
+          <ion-label>{{poke.name}}</ion-label>
+        </ion-item>
+        </ion-list>
+        </ion-card-content>
+        </ion-card>
+
+
+  <!--<ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Pokedex</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>
