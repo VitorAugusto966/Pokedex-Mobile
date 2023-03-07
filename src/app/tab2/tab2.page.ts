@@ -40,11 +40,11 @@ export class Tab2Page {
       page = 1;
     }
     else {
-      page = page * 20
+      page = page * 21
     }
 
     if (this.pageAtual == 1) {
-      for (let i = page; i <= page * 20; i++) {
+      for (let i = page; i <= page * 21; i++) {
         await this.http.get(`${urlBase}` + i).toPromise()
           .then((result) => {
             this.pokes.push(result);

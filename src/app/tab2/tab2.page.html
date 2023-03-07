@@ -1,12 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-     Pokedex!
+      Pokedex
     </ion-title>
-  </ion-toolbar>
-  <ion-toolbar >
-    <ion-button id="left" (click)="previous()"> <ion-icon  name="chevron-back-outline"></ion-icon></ion-button>
-    <ion-button id="right" (click)="next()"><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+    <ion-buttons slot="end">
+      <ion-button id="left" (click)="previous()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      <ion-button id="right" (click)="next()">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -30,16 +34,22 @@
       <ion-card-title>Pokemons</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let poke of this.pokes">
-          <ion-thumbnail slot="start">
-            <img alt="{{poke.name}}" src="{{poke.sprites.front_default}}" />
-          </ion-thumbnail>
-          <ion-label>{{poke.name}}</ion-label>
-        </ion-item>
-        </ion-list>
-        </ion-card-content>
-        </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let poke of this.pokes" size="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{poke.name}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <img alt="{{poke.name}}" src="{{poke.sprites.front_default}}" />
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
 
   <!--<ion-header collapse="condense">

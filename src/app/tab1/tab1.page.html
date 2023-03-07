@@ -4,26 +4,44 @@
       <ion-title>Find</ion-title>
     </ion-toolbar>
     <ion-toolbar>
-      <ion-searchbar (ionChange)="handleChange($event)"></ion-searchbar>
+      <ion-searchbar (ionInput)="handleChange($event)"></ion-searchbar>
     </ion-toolbar>
   </ion-header>
 
 <ion-content [fullscreen]="true">
  <ion-card *ngIf="pokemon != null && pokemon != undefined">
 
-   <img alt="{{pokemon.name}}" src="{{pokemon.sprites.front_default}}" />
+   <img [alt]="pokemon.name" [src]="pokemon.sprites.front_default"/>
    
     <ion-card-header>
       <ion-card-title>{{pokemon.name}}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content *ngFor="let stats of pokemon.stats">
-      <ion-label *ngIf="stats.stat.name == 'hp'"><ion-icon onmouseover="hp"  name="heart"> </ion-icon> HP</ion-label>
-      <ion-label *ngIf="stats.stat.name == 'attack'"><ion-icon name="barbell"></ion-icon> Attack</ion-label>
-      <ion-label *ngIf="stats.stat.name == 'defense'"><ion-icon name="shield"></ion-icon> Defense</ion-label>
-      <ion-label *ngIf="stats.stat.name == 'speed'"><ion-icon name="walk"></ion-icon> Speed</ion-label>
-      <ion-label *ngIf="stats.stat.name == 'special-attack'"><ion-icon name="diamond"></ion-icon> Special-attack</ion-label>
-      <ion-label *ngIf="stats.stat.name == 'special-defense'"><ion-icon name="lock-closed"></ion-icon> Special-defense</ion-label>
+      <ion-label *ngIf="stats.stat.name === 'hp'">
+        <ion-icon name="heart" title="HP"></ion-icon>
+        HP
+      </ion-label>
+      <ion-label *ngIf="stats.stat.name === 'attack'">
+        <ion-icon name="barbell" title="Attack"></ion-icon>
+        Attack
+      </ion-label>
+      <ion-label *ngIf="stats.stat.name === 'defense'">
+        <ion-icon name="shield" title="Defense"></ion-icon>
+        Defense
+      </ion-label>
+      <ion-label *ngIf="stats.stat.name === 'speed'">
+        <ion-icon name="walk" title="Speed"></ion-icon>
+        Speed
+      </ion-label>
+      <ion-label *ngIf="stats.stat.name === 'special-attack'">
+        <ion-icon name="diamond" title="Special-attack"></ion-icon>
+        Special-attack
+      </ion-label>
+      <ion-label *ngIf="stats.stat.name === 'special-defense'">
+        <ion-icon name="lock-closed" title="Special-defense"></ion-icon>
+        Special-defense
+      </ion-label>
       <ion-label> | Value: {{stats.base_stat}}</ion-label>
     </ion-card-content>
   </ion-card> 
